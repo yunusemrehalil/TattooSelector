@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "443679430516",
+    "project_id": "tattooselectorapp",
+    "storage_bucket": "tattooselectorapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:443679430516:android:be06371c2b195dd674be21",
+        "android_client_info": {
+          "package_name": "com.example.tattooselector"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "443679430516-0j77up2cf21c3s1t4f5nquk4ruh3hlqv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGK1yxBgkXZ07aiX0H8JT1l5V5kxQC94M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "443679430516-0j77up2cf21c3s1t4f5nquk4ruh3hlqv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

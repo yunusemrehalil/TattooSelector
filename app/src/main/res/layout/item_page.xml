@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    >
+
+    <TextView
+        android:id="@+id/baslik"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Baslik"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="30dp"
+        android:textSize="36sp">
+
+    </TextView>
+    <TextView
+        android:id="@+id/icerik"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="İcerik"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/baslik"
+        android:layout_margin="20dp"
+        android:textSize="24sp">
+
+    </TextView>
+
+    <ImageView
+        android:id="@+id/images"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:foreground="?selectableItemBackground"
+        android:src="@mipmap/ic_launcher_round"
+        android:layout_marginBottom="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/baslik"
+        android:clickable="true"
+        android:focusable="true"
+
+        >
+
+    </ImageView>
+
+
+</RelativeLayout>
