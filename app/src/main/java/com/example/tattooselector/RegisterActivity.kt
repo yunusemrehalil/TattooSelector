@@ -19,7 +19,7 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_register)
         firebaseAuth = FirebaseAuth.getInstance()
         progressDialog = ProgressDialog(this)
-        progressDialog.setTitle("Please Wait")
+        progressDialog.setTitle("Lutfen Bekleyin")
         progressDialog.setCanceledOnTouchOutside(false)
 
         backButton.setOnClickListener()
