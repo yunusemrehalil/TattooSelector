@@ -1,9 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/LayoutMail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></com.google.android.material.textfield.TextInputLayout>
+        <EditText
+            android:id="@+id/ETMail"
+            android:hint="Mail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+        ></EditText>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/LayoutPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/LayoutMail"></com.google.android.material.textfield.TextInputLayout>
+
+    <EditText
+        android:id="@+id/ETPassword"
+        android:hint="Password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ETMail"
+        ></EditText>
+    <Button
+        android:id="@+id/buttonLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ETPassword"
+        android:text="Giriş Yap"
+        ></Button>
+    <Button
+        android:id="@+id/RegisterLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hesap Oluştur"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/ETPassword"
+        >
+    </Button>
+</RelativeLayout>

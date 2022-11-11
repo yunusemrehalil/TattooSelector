@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         }
         skip_button.setOnClickListener()
         {
-            startActivity(Intent(this,DashboardActivity::class.java))
+            startActivity(Intent(this,RegisterActivity::class.java))
         }
     }
 
