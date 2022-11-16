@@ -34,6 +34,7 @@ class LoginActivity : AppCompatActivity() {
         buttonLogin.setOnClickListener()
         {
             validateData()
+            startActivity(Intent(this@LoginActivity,DashboardActivity::class.java))
         }
     }
 
