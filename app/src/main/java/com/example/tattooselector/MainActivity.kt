@@ -2,23 +2,23 @@ package com.example.tattooselector
 
 
 import android.content.Intent
-import android.graphics.Bitmap
 import android.os.Bundle
-import android.os.Environment
-import android.widget.ImageView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.viewpager2.widget.ViewPager2
-import com.bumptech.glide.Glide
+import com.example.tattooselector.Adapter.ViewPagerAdapter
+import com.google.firebase.database.DatabaseReference
 import kotlinx.android.synthetic.main.activity_main.*
-import me.relex.circleindicator.CircleIndicator3
-import java.io.File
+import com.example.tattooselector.Listener.IFirebaseLoadDone
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var adapter: ViewPagerAdapter
+    lateinit var tattoos:DatabaseReference
+
+    lateinit var iFirebaseLoadDone: IFirebaseLoadDone
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         login_button.setOnClickListener()
         {
             startActivity(Intent(this,LoginActivity::class.java))

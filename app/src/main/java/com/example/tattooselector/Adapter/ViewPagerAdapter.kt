@@ -1,22 +1,23 @@
-package com.example.tattooselector
+package com.example.tattooselector.Adapter
 
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.inflate
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import me.relex.circleindicator.CircleIndicator3
+import com.example.tattooselector.R
 
 class ViewPagerAdapter(private var title:List<String>, private var details:List<String>, private var images:List<Int>):RecyclerView.Adapter<ViewPagerAdapter.Pager2ViewHolder>()
 {
+
     inner class Pager2ViewHolder(itemview: View): RecyclerView.ViewHolder(itemview)
     {
-        val itemTitle: TextView = itemview.findViewById(R.id.baslik)
-        val itemDetail: TextView = itemview.findViewById(R.id.icerik)
-        val itemImage: ImageView = itemview.findViewById(R.id.images)
+
+        val itemTitle: TextView = itemview.findViewById(R.id.tattoo_baslik)
+        val itemDetail: TextView = itemview.findViewById(R.id.tattoo_icerik)
+        val itemImage: ImageView = itemview.findViewById(R.id.tattoo_image)
 
         init {
             itemImage.setOnClickListener()
@@ -29,7 +30,7 @@ class ViewPagerAdapter(private var title:List<String>, private var details:List<
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ):ViewPagerAdapter.Pager2ViewHolder
+    ): Pager2ViewHolder
     {
         return Pager2ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_page,parent,false))
     }
