@@ -14,24 +14,25 @@ import me.relex.circleindicator.CircleIndicator3
 
 private var titlesList = mutableListOf<String>()
 private var descList = mutableListOf<String>()
-private var imageList = mutableListOf<Int>()
+//private var imageList = mutableListOf<Int>()
+private var tattoos = mutableListOf<Tattoo>()
 private lateinit var firebaseAuth: FirebaseAuth
 
 class DashboardActivity : AppCompatActivity(), IFirebaseLoadDone {
 
     lateinit var iFirebaseLoadDone: IFirebaseLoadDone
-    lateinit var tattoos: DatabaseReference
+    lateinit var databaseReference: DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
         firebaseAuth = FirebaseAuth.getInstance()
-        tattoos = FirebaseDatabase.getInstance().getReference("Tattoos")
+        databaseReference = FirebaseDatabase.getInstance().getReference("Tattoos")
 
         iFirebaseLoadDone = this
-        loadTattoo()
+        //loadTattoo()
         checkUser()
         postToList()
-        view_pager2.adapter = ViewPagerAdapter(titlesList, descList, imageList)
+        view_pager2.adapter = ViewPagerAdapter(titlesList, descList, tattoos)
         view_pager2.orientation = ViewPager2.ORIENTATION_HORIZONTAL
 
         val indicator: CircleIndicator3 = findViewById(R.id.indicator)
@@ -45,19 +46,35 @@ class DashboardActivity : AppCompatActivity(), IFirebaseLoadDone {
         }
     }
 
-    private fun addToList(title: String, describtion:String, images: Int)
+    private fun addToList(title: String, describtion:String, images: Tattoo)
     {
         titlesList.add(title)
         descList.add(describtion)
-        imageList.add(images)
+        tattoos.add(images)
     }
     private fun postToList(){
-        for (i in 1..5)
+        /*for (tattooSnapShot in snapsh)
         {
             addToList("Dovme $i", "Aciklama $i", R.mipmap.ic_launcher_round)
-        }
+        }*/
+        databaseReference.addListenerForSingleValueEvent(object:ValueEventListener{
+
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for(tattooSnapShot in snapshot.children)
+                {
+                    var i:Int = 1
+                    val tattoo = tattooSnapShot.getValue(Tattoo::class.java)
+                    tattoos.add(tattoo!!)
+                    addToList("Dovme $i", "Aciklama $i", tattoo)
+                    i++
+                }
+            }
+            override fun onCancelled(error: DatabaseError) {
+                iFirebaseLoadDone.onTattooLoadFailed(error.message)
+            }
+        })
     }
-    private fun loadTattoo()
+    /*private fun loadTattoo()
     {
         tattoos.addListenerForSingleValueEvent(object:ValueEventListener{
 
@@ -75,6 +92,6 @@ class DashboardActivity : AppCompatActivity(), IFirebaseLoadDone {
             }
         })
 
-    }
+    }*/
 }
 
